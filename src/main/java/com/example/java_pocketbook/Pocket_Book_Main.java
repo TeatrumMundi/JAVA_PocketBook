@@ -1,52 +1,42 @@
 package com.example.java_pocketbook;
 
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.io.IOException;
+import java.util.Objects;
 
 public class Pocket_Book_Main extends Application
 {
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
+    private static final String FXML_PATH = "/com/example/java_pocketbook/pocketbook_view.fxml";
+    private static final String ICON_PATH = "/icon.jpeg";
+    private static final String APP_TITLE = "PocketBook";
 
     @Override
-    public void start(Stage stage) {
-        Group root = new Group();
-        Scene scene = new Scene(root,750,750, Color.LIGHTGRAY);
+    public void start(Stage stage)
+    {
+        try
+        {
+            // Load FXML
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(FXML_PATH)));
 
-        Text text = new Text();
-        text.setText("KYS");
-        text.setX(50);
-        text.setY(50);
-        text.setFont(Font.font("Roboto",50));
-        text.setFill(Color.DARKOLIVEGREEN);
+            // Load Icon
+            Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_PATH)));
+            stage.getIcons().add(icon);
 
-        Line line = new Line();
-        line.setStartX(200);
-        line.setStartY(200);
-        line.setEndX(500);
-        line.setEndY(200);
-        line.setStrokeWidth(5);
-        line.setStroke(Color.RED);
-        line.setOpacity(0.5);
+            // Application Title declaration
+            stage.setTitle(APP_TITLE);
 
-        // Icon declaration
-        Image icon = new Image("icon.jpeg");
-        stage.getIcons().add(icon);
-        // Application Title declaration
-        stage.setTitle("PocketBook");
-
-        root.getChildren().add(text);
-        root.getChildren().add(line);
-        stage.setScene(scene);
-        stage.show();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException | NullPointerException exception)
+        {
+            System.err.println("Error loading application resources: " + exception.getMessage());
+        }
     }
+
+    public static void main(String[] args) {launch(args);}
 }
