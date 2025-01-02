@@ -1,0 +1,22 @@
+/* Minimalistyczny styl przycisku */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2px;
+    -fx-text-fill: #4CAF50;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.button:pressed {
+    -fx-background-color: #45a049;
+    -fx-border-color: #45a049;
+}
