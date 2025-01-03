@@ -61,12 +61,12 @@
             <Font name="Calibri" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="5.0" layoutY="700.0" mnemonicParsing="false" onAction="#createNewFile" prefHeight="40.0" prefWidth="414.0" text="Save file">
+      <Button layoutX="5.0" layoutY="700.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="40.0" prefWidth="414.0" text="Save file">
          <font>
             <Font name="Calibri" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="5.0" layoutY="750.0" mnemonicParsing="false" onAction="#createNewFile" prefHeight="40.0" prefWidth="414.0" stylesheets="@application.css" text="New File">
+      <Button layoutX="5.0" layoutY="750.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="414.0" stylesheets="@application.css" text="New File">
          <font>
             <Font name="Calibri" size="22.0" />
          </font>
